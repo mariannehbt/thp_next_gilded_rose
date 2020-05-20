@@ -9880,10 +9880,10 @@ h3 {
   src: url(fonts/6ececefe45a86260350b99a4458ea4bd.otf);
 }
 body {
-  background-image: url(images/868dde49da3275a70320c1ca30872742.jpg);
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: black;
 }
 
 item {

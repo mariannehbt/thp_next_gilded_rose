@@ -4,14 +4,22 @@ import {Item} from './item';
 import {Shop} from './shop';
 
 let listItems = [];
-listItems.push(new Item('+5 Dexterity Vest', 10, 20));
-listItems.push(new Item('Mana Cake', 3, 6));
+listItems.push(new Item("+5 Dexterity Vest", 10, 20));
+listItems.push(new Item("Mana Cake", 3, 6));
+listItems.push(new Item("Aged Brie", 20, 30));
+listItems.push(new Item("Backstage passes to a TAFKAL80ETC concert", 20, 30));
+listItems.push(new Item("Shield", 0, 10));
+listItems.push(new Item("Cheese Cake", 0, 3));
+listItems.push(new Item("Sulfuras, Hand of Ragnaros", Infinity, 80));
+listItems.push(new Item('Conjured Dark Blade', 8, 6));
+listItems.push(new Item('Conjured Magic Stick', 17, 42));
 
-let shop = new Shop(listItems);
+const gildedRose = new Shop(listItems);
+console.log(gildedRose);
 
-console.log(shop);
+const items = gildedRose.updateQuality();
 
-const selector = document.getElementById('listItems');
+const selector = document.getElementById('items');
 
 function showListItems(name, sellIn, quality) {
 	selector.innerHTML += `
@@ -19,8 +27,8 @@ function showListItems(name, sellIn, quality) {
 				<div class='border rounded border-danger'>
 					<div class='card-body text-info'>
 						<h1 class='card-title'>${name}</h1>
-						<p class='card-text'>Qualité : ${quality}</p>
 						<p class='card-text'>J-${sellIn}</p>
+						<p class='card-text'>Qualité : ${quality}</p>
 					</div>
 				</div>
 		</item>
@@ -34,22 +42,3 @@ listItems.forEach((e) => {
 		e.quality
 	);
 });
-
-
-
-
-
-
-
-
-// import { myFunction, anotherFunction } from './file2';
-// import moment from 'moment';
-
-// console.log('coucou');
-// myFunction();
-// anotherFunction();
-// console.log(moment().format('MMMM Do YYYY'));
-// console.log(moment('20111031', 'YYYYMMDD').fromNow()); // 8 years ago
-// console.log(moment().subtract(10, 'days').calendar()); // 05/27/2019
-// console.log('bye');
-// console.log('TEST', process.env.DB_HOST);
