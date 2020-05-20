@@ -9886,7 +9886,22 @@ body {
   background-size: cover;
 }
 
-p {
+item {
+  float: left;
+  width: 25%;
+}
+
+h1 {
   color: #ff1414;
+  font-family: "Big Noodles";
+}
+
+h2 {
+  color: white;
+  font-family: "Big Noodles";
+}
+
+p {
+  color: white;
   font-family: "Big Noodles";
 }
