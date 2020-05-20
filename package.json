@@ -1,13 +1,14 @@
 {
-  "name": "20200427",
+  "name": "gilded-rose-kata",
   "version": "1.0.0",
-  "description": "",
+  "description": "Gilded Rose kata in Javascript with Jasmine",
   "main": "index.js",
   "author": "",
   "license": "ISC",
   "scripts": {
     "build": "webpack --env.NODE_ENV=development --config webpack.config.js",
-    "production": "webpack --env.NODE_ENV=production --config webpack.config.js"
+    "prod": "webpack --env.NODE_ENV=production --config webpack.config.js",
+    "test": "jasmine spec/gilded_rose_spec.js"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
