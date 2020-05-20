@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/bootstrap";
+
+$red: rgb(255, 20, 20);
+$lime: rgb(1, 255, 112);
+
+@font-face {
+	font-family: "Big Noodles";
+	src: url("../fonts/FuturaRenner-Light.otf");
+};
+
+body {
+	background-image: url("../images/tavern.jpg");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+};
+
+p {
+	color: $red;
+	font-family: "Big Noodles";
+};
