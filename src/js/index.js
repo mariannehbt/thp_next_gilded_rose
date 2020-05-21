@@ -9,10 +9,10 @@ listItems.push(new Item("Mana Cake", 3, 6));
 listItems.push(new Item("Aged Brie", 20, 30));
 listItems.push(new Item("Backstage passes to a TAFKAL80ETC concert", 20, 30));
 listItems.push(new Item("Shield", 0, 10));
-listItems.push(new Item("Cheese Cake", 0, 3));
+listItems.push(new Item("Cheese Cake", 0, 0));
 listItems.push(new Item("Sulfuras, Hand of Ragnaros", Infinity, 80));
-listItems.push(new Item('Conjured Dark Blade', 8, 6));
-listItems.push(new Item('Conjured Magic Stick', 17, 42));
+listItems.push(new Item("Conjured Dark Blade", 2, 10));
+listItems.push(new Item("Conjured Magic Stick", 0, 10));
 
 const gildedRose = new Shop(listItems);
 console.log(gildedRose);

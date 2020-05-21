@@ -1,4 +1,5 @@
-var { Shop, Item } = require('../src/js/gilded_rose.js');
+var { Shop } = require('../src/js/shop.js');
+var { Item } = require('../src/js/item.js');
 describe("GildedRose shop manager", function () {
   var listItems;
 
@@ -43,14 +44,14 @@ describe("GildedRose shop manager", function () {
 
   it("3. Baisser de 2 la qualité et baisser de 1 le sellIn d'item normaux périmés", function () {
     listItems.push(new Item("Shield", 0, 10));
-    listItems.push(new Item("Cheese Cake", 0, 3));
+    listItems.push(new Item("Cheese Cake", 0, 0));
 
     const gildedRose = new Shop(listItems);
     const items = gildedRose.updateQuality();
 
     var expected = [
       { sellIn: -1, quality: 8 },
-      { sellIn: -1, quality: 1 },
+      { sellIn: -1, quality: 0 },
     ];
     expected.forEach(function (testCase, idx) {
       expect(items[idx].quality).toBe(testCase.quality);
@@ -108,23 +109,17 @@ describe("GildedRose shop manager", function () {
   });
 
   it("7. Augmenter la qualité pour pour Aged Brie et Backstage passes : +2 quand il reste 10 jours ou moins et + 3 quand il reste 5 jours ou moins", function () {
-    listItems.push(new Item("Backstage passes to a TAFKAL80ETC concert", 11, 30));
     listItems.push(new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30));
-    listItems.push(new Item("Backstage passes to a TAFKAL80ETC concert", 6, 30));
     listItems.push(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30));
-    listItems.push(new Item("Aged Brie", 6, 30));
     listItems.push(new Item("Aged Brie", 5, 30));
 
     const gildedRose = new Shop(listItems);
     const items = gildedRose.updateQuality();
 
     var expected = [
-      { sellIn: 10, quality: 31 },
       { sellIn: 9, quality: 32 },
-      { sellIn: 5, quality: 32 },
       { sellIn: 4, quality: 33 },
-      { sellIn: 5, quality: 31 },
-      { sellIn: 4, quality: 31 },
+      { sellIn: 4, quality: 33 },
     ];
     expected.forEach(function (testCase, idx) {
       expect(items[idx].quality).toBe(testCase.quality);
@@ -142,6 +137,23 @@ describe("GildedRose shop manager", function () {
     var expected = [
       { sellIn: 0, quality: 33 },
       { sellIn: -1, quality: 0 },
+    ];
+    expected.forEach(function (testCase, idx) {
+      expect(items[idx].quality).toBe(testCase.quality);
+      expect(items[idx].sellIn).toBe(testCase.sellIn);
+    });
+  });
+
+  it("9. Baisser la qualité de Conjured deux fois plus vite que pour les objets normaux", function () {
+  	listItems.push(new Item("Conjured Dark Blade", 2, 10));
+  	listItems.push(new Item("Conjured Magic Stick", 0, 10));
+
+    const gildedRose = new Shop(listItems);
+    const items = gildedRose.updateQuality();
+
+    var expected = [
+      { sellIn: 1, quality: 8 },
+      { sellIn: -1, quality: 6 },
     ];
     expected.forEach(function (testCase, idx) {
       expect(items[idx].quality).toBe(testCase.quality);
